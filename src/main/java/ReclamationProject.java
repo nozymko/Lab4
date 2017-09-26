@@ -29,8 +29,10 @@ public class ReclamationProject {
             wordTwo = temp;
         }
         String longestSubstring = "";
-        /*
-         * For loop with i
+
+        /* Loops through the first word and the second word
+         * until it finds the longest common substring.
+         * If not found, returns "".
          */
         for (int i = 0; i < wordOne.length(); i++) {
             for (int j = wordOne.length() - i; j > 0; j--) {
