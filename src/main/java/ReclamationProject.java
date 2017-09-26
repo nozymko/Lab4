@@ -8,19 +8,37 @@
  * 5. Remove unnecessary comments as appropriate
  */
 
-public class ReclamationProject
-{
-    static String doit(String a,String b){
-        if (a.length() > b.length()){
-            String c = a; // TODO: set c to a
-            a=b; b=c;}
-        String r = (a.equals(b)) ? "" : ""; // I love the ternary operator!
+/**
+ *
+ */
+public class ReclamationProject {
+
+    /**
+     *
+     * @param firstWord is a String
+     * @param secondWord is a String
+     * @return the first char in first that also occurs in second
+     */
+    public static String containsSameThing(final String firstWord, final String secondWord) {
+        String wordOne = firstWord;
+        String wordTwo = secondWord;
+        if (wordOne.length() > wordTwo.length()) {
+            String temp = wordOne; //switches two words
+            wordOne = wordTwo;
+            wordTwo = temp;
+        }
+        String similar = "";
         /*
          * For loop with i
          */
-        for (int i = 0; i < a.length(); i++) { for (int j = a.length() - i; j > 0; j--) {
-                for (int k = 0; k < b.length()- j; k++) {
-                    r = (a.regionMatches(i, b, k, j) && j >r.length()) ? a.substring(i,i + j) : r; // Do it!
-                        }} // Ah yeah
-        } return r; }
+        for (int i = 0; i < wordOne.length(); i++) {
+            for (int j = wordOne.length() - i; j > 0; j--) {
+                for (int k = 0; k < wordTwo.length() - j; k++) {
+                    if (wordOne.regionMatches(i, wordTwo, k, j) && j > similar.length()) {
+                        similar = wordOne.substring(i, i + j);
+                    }
+                }
+            }
+        } return similar;
+    }
 }
