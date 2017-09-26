@@ -34,10 +34,14 @@ public class ReclamationProject {
          * until it finds the longest common substring.
          * If not found, returns "".
          */
+        //loops through the first word starting at the beginning
         for (int beginningLetter = 0; beginningLetter < wordOne.length(); beginningLetter++) {
+            //loops through the first word starting at the end
             for (int endLetter = wordOne.length() - beginningLetter; endLetter > 0; endLetter--) {
+                //loops through the second word
                 for (int wordTwoLetter = 0; wordTwoLetter < wordTwo.length() - endLetter;
                         wordTwoLetter++) {
+                    //checks for a new longest substring
                     if (wordOne.regionMatches(beginningLetter, wordTwo, wordTwoLetter, endLetter)
                             && endLetter > longestSubstring.length()) {
                         longestSubstring = wordOne.substring(beginningLetter,
